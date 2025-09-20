@@ -4,11 +4,6 @@
   "installCommand": "pnpm install --frozen-lockfile",
   "devCommand": "pnpm dev --filter=@tabitha/web",
   "framework": "nextjs",
-  "functions": {
-    "apps/web/src/app/api/*/route.ts": {
-      "maxDuration": 30
-    }
-  },
   "rewrites": [
     {
       "source": "/api/(.*)",
