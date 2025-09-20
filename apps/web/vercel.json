@@ -1,9 +1,7 @@
 {
   "installCommand": "cd ../.. && pnpm install",
-  "buildCommand": "cd ../.. && pnpm build --filter=@tabitha/shared --filter=@tabitha/ui && cd apps/web && next build",
-  "devCommand": "cd ../.. && pnpm dev --filter=@tabitha/web",
+  "buildCommand": "cd ../.. && pnpm build --filter=@tabitha/shared --filter=@tabitha/ui && cd apps/web && pnpm build",
   "outputDirectory": ".next",
-  "framework": "nextjs",
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 30
