@@ -32,14 +32,14 @@
 ## Database & Backend
 
 ### Database Setup
-- [ ] Design and implement Supabase database schema
-- [ ] Create User table with age/gender fields
-- [ ] Create Product table with retailer information
-- [ ] Create Wishlist and WishlistItem tables
-- [ ] Set up database relationships and constraints
-- [ ] Create database migrations in Supabase
-- [ ] Implement database seeding scripts
-- [ ] Configure Row Level Security (RLS) policies
+- [x] Design and implement Supabase database schema
+- [x] Create User table with age/gender fields
+- [x] Create Product table with retailer information
+- [x] Create Wishlist and WishlistItem tables
+- [x] Set up database relationships and constraints
+- [x] Create database migrations in Supabase
+- [x] Implement database seeding scripts
+- [x] Configure Row Level Security (RLS) policies
 
 ### Authentication System
 - [ ] Configure Supabase Auth for web and mobile
