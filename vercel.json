@@ -1,12 +1,20 @@
 {
-  "installCommand": "cd ../.. && pnpm install",
-  "buildCommand": "cd ../.. && pnpm build --filter=@tabitha/shared --filter=@tabitha/ui && cd apps/web && pnpm build",
-  "outputDirectory": ".next",
+  "buildCommand": "pnpm build --filter=@tabitha/web",
+  "outputDirectory": "apps/web/.next",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "devCommand": "pnpm dev --filter=@tabitha/web",
+  "framework": "nextjs",
   "functions": {
-    "app/api/**/*.ts": {
+    "apps/web/src/app/api/**/*.ts": {
       "maxDuration": 30
     }
   },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
