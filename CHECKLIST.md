@@ -96,10 +96,10 @@
 
 ### Project Setup
 - [x] Initialize Expo project with latest SDK (Expo Go compatible)
-- [ ] Configure Expo Router for navigation
+- [x] Configure Expo Router for navigation
 - [x] Set up TypeScript configuration
 - [x] Install and configure required dependencies
-- [ ] Configure Supabase client for mobile
+- [x] Configure Supabase client for mobile
 - [ ] Set up app icons and splash screens
 - [ ] Configure app permissions and capabilities
 - [ ] Test with Expo Go app
@@ -116,11 +116,11 @@
 
 ### Screens & Navigation
 - [ ] Create onboarding flow screens
-- [ ] Implement tab navigation structure
-- [ ] Build product discovery screen with swipe
-- [ ] Create wishlist management screens
-- [ ] Implement user profile screen
-- [ ] Add authentication screens (login/register)
+- [x] Implement tab navigation structure
+- [x] Build product discovery screen with swipe
+- [x] Create wishlist management screens
+- [x] Implement user profile screen
+- [x] Add authentication screens (login/register)
 - [ ] Create wishlist creation/editing screens
 - [ ] Implement product detail modal
 
@@ -167,11 +167,11 @@
 - [ ] Create error boundary components
 
 ### Pages & Routing
-- [ ] Create landing/home page
-- [ ] Implement product discovery page
-- [ ] Build wishlist management pages
+- [x] Create landing/home page
+- [x] Implement product discovery page
+- [x] Build wishlist management pages
 - [ ] Create user profile page
-- [ ] Add authentication pages
+- [x] Add authentication pages
 - [ ] Implement shared wishlist viewing
 - [ ] Create wishlist creation/editing pages
 - [ ] Add 404 and error pages
