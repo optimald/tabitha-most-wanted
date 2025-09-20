@@ -1,8 +1,8 @@
 {
-  "buildCommand": "pnpm build --filter=@tabitha/web",
-  "outputDirectory": "apps/web/.next",
-  "installCommand": "pnpm install --frozen-lockfile",
-  "devCommand": "pnpm dev --filter=@tabitha/web",
+  "buildCommand": "cd ../.. && pnpm build --filter=@tabitha/web",
+  "outputDirectory": ".next",
+  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+  "devCommand": "cd ../.. && pnpm dev --filter=@tabitha/web",
   "framework": "nextjs",
   "rewrites": [
     {
