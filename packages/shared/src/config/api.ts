@@ -5,11 +5,7 @@ export const API_CONFIG = {
   RETRY_DELAY: 1000, // 1 second
 } as const;
 
-export const SUPABASE_CONFIG = {
-  URL: process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-  ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '',
-  SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
-} as const;
+// SUPABASE_CONFIG moved to utils/constants.ts to avoid export conflicts
 
 export const EXTERNAL_APIS = {
   AMAZON: {

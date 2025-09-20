@@ -10,12 +10,13 @@ import {
   Platform,
 } from 'react-native';
 import { Link, router } from 'expo-router';
-import { supabase } from '../../lib/supabase';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { signIn, error, loading } = useAuth();
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -23,22 +24,14 @@ export default function LoginScreen() {
       return;
     }
 
-    setLoading(true);
+    setIsSubmitting(true);
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
-      if (error) {
-        Alert.alert('Error', error.message);
-      } else {
-        router.replace('/(tabs)/discover');
-      }
-    } catch (error) {
-      Alert.alert('Error', 'An unexpected error occurred');
+      await signIn(email, password);
+      router.replace('/(tabs)/discover');
+    } catch (err) {
+      Alert.alert('Login Failed', error || 'An unexpected error occurred');
     } finally {
-      setLoading(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -78,12 +71,12 @@ export default function LoginScreen() {
           </View>
 
           <TouchableOpacity
-            style={[styles.button, loading && styles.buttonDisabled]}
+            style={[styles.button, (loading || isSubmitting) && styles.buttonDisabled]}
             onPress={handleLogin}
-            disabled={loading}
+            disabled={loading || isSubmitting || !email || !password}
           >
             <Text style={styles.buttonText}>
-              {loading ? 'Signing In...' : 'Sign In'}
+              {isSubmitting ? 'Signing In...' : 'Sign In'}
             </Text>
           </TouchableOpacity>
         </View>

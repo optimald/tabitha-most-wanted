@@ -8,3 +8,6 @@ export * from './utils/helpers';
 
 // Export config
 export * from './config/api';
+
+// Export hooks
+export * from './hooks/useAuth';

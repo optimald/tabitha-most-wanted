@@ -1,7 +1,16 @@
+export const SUPABASE_CONFIG = {
+  URL: process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.EXPO_PUBLIC_SUPABASE_URL || '',
+  ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || '',
+} as const;
+
 export const APP_CONFIG = {
   NAME: 'Tabitha Most Wanted',
-  DESCRIPTION: 'Cross-platform wishlist app for kids',
+  DESCRIPTION: 'Cross-platform wishlist app for kids to browse and share product wishlists',
   VERSION: '1.0.0',
+  AUTHOR: 'Slick Rock Holdings',
+  SUPPORT_EMAIL: 'support@tabitha-most-wanted.com',
+  PRIVACY_URL: '/privacy',
+  TERMS_URL: '/terms',
 } as const;
 
 export const AGE_RANGES = {
