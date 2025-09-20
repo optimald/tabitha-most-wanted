@@ -3,19 +3,18 @@
 ## Project Setup & Infrastructure
 
 ### Repository & Workspace Setup
-- [ ] Initialize Git repository
-- [ ] Set up monorepo structure with PNPM workspaces
-- [ ] Configure Turborepo for build optimization
-- [ ] Create root `package.json` with workspace configuration
-- [ ] Set up `.gitignore` with appropriate exclusions
-- [ ] Create `.env.example` files for all applications
+- [x] Initialize Git repository
+- [x] Set up monorepo structure with PNPM workspaces
+- [x] Configure Turborepo for build optimization
+- [x] Create root `package.json` with workspace configuration
+- [x] Set up `.gitignore` with appropriate exclusions
+- [x] Create `.env.example` files for all applications
 - [ ] Set up ESLint and Prettier configurations
 - [ ] Configure TypeScript for all packages
 
 ### Development Environment
-- [ ] Set up Docker Compose for local development
-- [ ] Configure PostgreSQL database locally
-- [ ] Set up Redis for caching (optional for development)
+- [ ] Set up Supabase project for database and auth
+- [ ] Configure Supabase environment variables
 - [ ] Install and configure Expo CLI
 - [ ] Set up Next.js development environment
 - [ ] Configure VS Code workspace settings
@@ -33,24 +32,24 @@
 ## Database & Backend
 
 ### Database Setup
-- [ ] Design and implement Prisma schema
-- [ ] Create User model with age/gender fields
-- [ ] Create Product model with retailer information
-- [ ] Create Wishlist and WishlistItem models
+- [ ] Design and implement Supabase database schema
+- [ ] Create User table with age/gender fields
+- [ ] Create Product table with retailer information
+- [ ] Create Wishlist and WishlistItem tables
 - [ ] Set up database relationships and constraints
-- [ ] Create database migrations
+- [ ] Create database migrations in Supabase
 - [ ] Implement database seeding scripts
-- [ ] Set up database backup strategy
+- [ ] Configure Row Level Security (RLS) policies
 
 ### Authentication System
-- [ ] Implement NextAuth.js configuration
-- [ ] Create user registration endpoint
-- [ ] Create user login endpoint
-- [ ] Implement JWT token management
-- [ ] Add password hashing and validation
-- [ ] Create user profile management
-- [ ] Implement parental email verification
+- [ ] Configure Supabase Auth for web and mobile
+- [ ] Set up email/password authentication
+- [ ] Configure OAuth providers (Google, Apple)
+- [ ] Implement user profile management
+- [ ] Set up parental email verification
 - [ ] Add COPPA compliance features
+- [ ] Configure auth policies and RLS
+- [ ] Set up auth state management
 
 ### API Development
 - [ ] Set up Next.js API routes structure
@@ -96,14 +95,14 @@
 ## Mobile App (Expo/React Native)
 
 ### Project Setup
-- [ ] Initialize Expo project with latest SDK
+- [x] Initialize Expo project with latest SDK (Expo Go compatible)
 - [ ] Configure Expo Router for navigation
-- [ ] Set up TypeScript configuration
-- [ ] Install and configure required dependencies
-- [ ] Set up development build configuration
-- [ ] Configure EAS Build for app stores
+- [x] Set up TypeScript configuration
+- [x] Install and configure required dependencies
+- [ ] Configure Supabase client for mobile
 - [ ] Set up app icons and splash screens
 - [ ] Configure app permissions and capabilities
+- [ ] Test with Expo Go app
 
 ### Core Components
 - [ ] Create SwipeableCard component with gestures
@@ -148,10 +147,10 @@
 ## Web App (Next.js)
 
 ### Project Setup
-- [ ] Initialize Next.js 14 project with App Router
-- [ ] Configure Tailwind CSS
-- [ ] Set up TypeScript configuration
-- [ ] Install and configure dependencies
+- [x] Initialize Next.js 14 project with App Router
+- [x] Configure Tailwind CSS
+- [x] Set up TypeScript configuration
+- [x] Install and configure dependencies
 - [ ] Set up Shadcn/ui components
 - [ ] Configure environment variables
 - [ ] Set up Vercel deployment configuration
@@ -200,17 +199,17 @@
 ## Shared Packages
 
 ### Shared Types & Utilities
-- [ ] Create shared TypeScript interfaces
-- [ ] Implement validation schemas with Zod
-- [ ] Add utility functions and helpers
-- [ ] Create API client configuration
-- [ ] Implement shared constants
-- [ ] Add formatting utilities
+- [x] Create shared TypeScript interfaces
+- [x] Implement validation schemas with Zod
+- [x] Add utility functions and helpers
+- [x] Create API client configuration
+- [x] Implement shared constants
+- [x] Add formatting utilities
 - [ ] Create shared React hooks
 - [ ] Implement error handling utilities
 
 ### UI Component Library
-- [ ] Create base Button component
+- [x] Create base Button component
 - [ ] Implement Card component variants
 - [ ] Build Input and Form components
 - [ ] Create Modal and Dialog components
