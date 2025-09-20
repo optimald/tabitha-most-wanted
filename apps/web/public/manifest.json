@@ -1,0 +1,74 @@
+{
+  "name": "Tabitha Most Wanted",
+  "short_name": "Tabitha",
+  "description": "Cross-platform wishlist app for kids to browse and share product wishlists",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#6366F1",
+  "theme_color": "#6366F1",
+  "orientation": "portrait-primary",
+  "categories": ["shopping", "lifestyle", "kids"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Tabitha Most Wanted on desktop"
+    },
+    {
+      "src": "/screenshot-narrow.png",
+      "sizes": "640x1136",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Tabitha Most Wanted on mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Discover Products",
+      "short_name": "Discover",
+      "description": "Browse age-appropriate products",
+      "url": "/discover",
+      "icons": [
+        {
+          "src": "/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "My Wishlists",
+      "short_name": "Wishlists",
+      "description": "View and manage your wishlists",
+      "url": "/wishlists",
+      "icons": [
+        {
+          "src": "/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

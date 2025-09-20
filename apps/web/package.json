@@ -8,7 +8,12 @@
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "build:production": "NODE_ENV=production next build",
+    "analyze": "ANALYZE=true next build",
+    "clean": "rm -rf .next out",
+    "vercel:build": "cd ../.. && pnpm build --filter=@tabitha/shared --filter=@tabitha/ui && cd apps/web && next build",
+    "vercel:dev": "cd ../.. && pnpm dev --filter=@tabitha/shared --filter=@tabitha/ui --parallel & next dev"
   },
   "dependencies": {
     "react": "19.1.0",

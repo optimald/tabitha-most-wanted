@@ -1,0 +1,74 @@
+name: Deploy Web App to Vercel
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/web/**'
+      - 'packages/**'
+      - '.github/workflows/deploy-web.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'apps/web/**'
+      - 'packages/**'
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+          
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        
+      - name: Build shared packages
+        run: pnpm build --filter=@tabitha/shared --filter=@tabitha/ui
+        
+      - name: Type check
+        run: pnpm type-check --filter=@tabitha/web
+        
+      - name: Lint
+        run: pnpm lint --filter=@tabitha/web
+        
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+        
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+        working-directory: ./apps/web
+        
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+        working-directory: ./apps/web
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          
+      - name: Deploy Project Artifacts to Vercel (Preview)
+        if: github.event_name == 'pull_request'
+        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+        working-directory: ./apps/web
+        
+      - name: Deploy Project Artifacts to Vercel (Production)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        working-directory: ./apps/web
