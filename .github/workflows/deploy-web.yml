@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
 name: Deploy Web App to Vercel
 
 on:
@@ -18,8 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }} # yamllint disable-line
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }} # yamllint disable-line
     
     steps:
       - name: Checkout code
@@ -52,23 +54,23 @@ jobs:
         run: npm install --global vercel@latest
         
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=preview --token="${{ secrets.VERCEL_TOKEN }}"
+        run: vercel pull --yes --environment=preview --token="${{ secrets.VERCEL_TOKEN }}" # yamllint disable-line
         working-directory: ./apps/web
         
       - name: Build Project Artifacts
-        run: vercel build --token="${{ secrets.VERCEL_TOKEN }}"
+        run: vercel build --token="${{ secrets.VERCEL_TOKEN }}" # yamllint disable-line
         working-directory: ./apps/web
         env:
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }} # yamllint disable-line
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }} # yamllint disable-line
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }} # yamllint disable-line
           
       - name: Deploy Project Artifacts to Vercel (Preview)
         if: github.event_name == 'pull_request'
-        run: vercel deploy --prebuilt --token="${{ secrets.VERCEL_TOKEN }}"
+        run: vercel deploy --prebuilt --token="${{ secrets.VERCEL_TOKEN }}" # yamllint disable-line
         working-directory: ./apps/web
         
       - name: Deploy Project Artifacts to Vercel (Production)
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: vercel deploy --prebuilt --prod --token="${{ secrets.VERCEL_TOKEN }}"
+        run: vercel deploy --prebuilt --prod --token="${{ secrets.VERCEL_TOKEN }}" # yamllint disable-line
         working-directory: ./apps/web

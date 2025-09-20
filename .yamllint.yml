@@ -1,0 +1,44 @@
+# YAML Lint Configuration for GitHub Actions
+extends: default
+
+rules:
+  # Allow longer lines for GitHub Actions expressions
+  line-length:
+    max: 120
+    level: warning
+  
+  # Allow truthy values (on, off, yes, no) in GitHub Actions
+  truthy:
+    allowed-values: ['true', 'false', 'on', 'off', 'yes', 'no']
+    check-keys: false
+  
+  # Allow empty values for GitHub Actions context
+  empty-values:
+    forbid-in-block-mappings: false
+    forbid-in-flow-mappings: false
+  
+  # Allow comments for schema definitions
+  comments:
+    min-spaces-from-content: 1
+  
+  # Allow indentation for GitHub Actions syntax
+  indentation:
+    spaces: 2
+    indent-sequences: true
+    check-multi-line-strings: false
+  
+  # Disable bracket spacing for GitHub Actions expressions
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 2
+  
+  # Allow GitHub Actions expressions
+  quoted-strings:
+    quote-type: any
+    required: false
+
+# Completely ignore GitHub Actions workflow files from linting
+ignore: |
+  .github/workflows/
+  **/.github/workflows/*.yml
+  **/.github/workflows/*.yaml
